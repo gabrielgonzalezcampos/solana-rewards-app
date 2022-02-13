@@ -4,5 +4,5 @@ import 'package:solana_rewards_app/store/actions/theme_action.dart';
 import 'package:solana_rewards_app/store/models/theme_model.dart';
 
 final ThemeReducer = combineReducers<ThemeModel>([
-  TypedReducer<ThemeModel, SetThemeDataAction>(SetThemeDataAction.setTheme),
+  TypedReducer<ThemeModel, ThemeAction>(ThemeAction.setTheme),
 ]);

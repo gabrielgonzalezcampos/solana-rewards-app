@@ -1,4 +1,5 @@
 
+import 'package:solana_rewards_app/models/issue.dart';
 import 'package:solana_rewards_app/models/issue_state.dart';
 import 'package:solana_rewards_app/models/issue_type.dart';
 
@@ -8,8 +9,9 @@ class IssueElementModel {
   late IssueState state;
   int? reward;
   late String description;
+  late List<String> attachments;
 
-  IssueElementModel(this.type, this.name, this.state, this.description, {this.reward});
+  IssueElementModel(this.type, this.name, this.state, this.description, this.attachments, {this.reward});
 
 
   String rewardToString() {
@@ -24,4 +26,20 @@ class IssueElementModel {
   }
 
   IssueElementModel.empty();
+
+  Issue toIssue() {
+    int reward = 0;
+    if(this.reward != null) {
+      reward = this.reward!;
+    }
+
+    return Issue(
+      title: name,
+      description: description,
+      state: state,
+      reward: reward,
+      issueType: type,
+      attachments: []//attachments
+    );
+  }
 }

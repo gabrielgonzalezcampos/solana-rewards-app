@@ -23,3 +23,10 @@ IconData buildIcon(IssueType type) {
   }
 }
 
+IssueType issueTypeFromInt(int index) {
+  if (index > IssueType.values.length) {
+    throw RangeError.index(index, IssueType.values.length);
+  }
+  return IssueType.values[index];
+}
+

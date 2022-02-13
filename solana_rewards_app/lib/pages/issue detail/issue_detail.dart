@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:solana_rewards_app/models/issue.dart';
 import 'package:solana_rewards_app/models/issue_state.dart';
 import 'package:solana_rewards_app/models/issue_type.dart';
 import 'package:solana_rewards_app/widgets/attachments/attachments.dart';
@@ -8,13 +9,13 @@ import 'package:solana_rewards_app/widgets/issue_element/issue_element_model.dar
 class IssueDetail extends StatelessWidget {
   IssueDetail({Key? key, required this.issue}) : super(key: key);
 
-  IssueElementModel issue;
+  Issue issue;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar (
-        title: Text(issue.name),
+        title: Text(issue.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -32,7 +33,7 @@ class IssueDetail extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text("Type: " + issue.type.toText(), textScaleFactor: 1.4),
+                          Text("Type: " + issue.issueType.toText(), textScaleFactor: 1.4),
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text("State: " + issue.state.toShortString(), textScaleFactor: 1.4),
